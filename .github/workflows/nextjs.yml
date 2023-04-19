@@ -28,6 +28,10 @@ jobs:
   # Build job
   build:
     runs-on: ubuntu-latest
+    env:
+      NEXT_PUBLIC_CANDY_MACHINE_ID: GQR444DK3xg4MjhZPqiwaGkY9kb6QQJg5FbDR9ZTdSqZ
+      NEXT_PUBLIC_RPC_HOST: https://solana-mainnet.g.alchemy.com/v2/J8GsqmgI11EZWDlFdGEKLTg2d-mYCRju/
+      NEXT_PUBLIC_SOLANA_NETWORK: mainnet-beta
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -51,7 +55,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
-          node-version: "16"
+          node-version: "18"
           cache: ${{ steps.detect-package-manager.outputs.manager }}
       - name: Setup Pages
         uses: actions/configure-pages@v3
